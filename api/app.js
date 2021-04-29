@@ -11,6 +11,13 @@ let app = express();
 if (process.env.NODE_ENV === 'production') {
     app.use(history());
 }
+else {
+    app.use((_, res, next) => {
+        res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+        res.header('Access-Control-Expose-Headers', 'X-Total-Count');
+        next();
+    })
+}
 
 app.use(logger('dev'));
 app.use(express.json());
