@@ -81,7 +81,17 @@ test('should return mod list', async() => {
     const list = await mods.getModList();
 
     expect(list).toStrictEqual([
-        { name: 'Super Ogmo Boy remake', id: 'super ogmo boy', url: 'https://celestemodupdater.0x0a.de/banana-mirror/389157.zip' },
-        { name: 'Wobble Decals', id: 'WobbleDecals', url: 'https://celestemodupdater.0x0a.de/banana-mirror/430826.zip' }
+        {
+            name: 'Super Ogmo Boy remake',
+            id: 'super ogmo boy',
+            url: 'https://celestemodupdater.0x0a.de/banana-mirror/389157.zip',
+            gbLink: 'https://gamebanana.com/maps/200736'
+        },
+        {
+            name: 'Wobble Decals',
+            id: 'WobbleDecals',
+            url: 'https://celestemodupdater.0x0a.de/banana-mirror/430826.zip',
+            gbLink: 'https://gamebanana.com/mods/53654'
+        }
     ]);
 });

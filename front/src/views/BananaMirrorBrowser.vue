@@ -19,7 +19,9 @@
         <tbody>
           <tr v-bind:key="mod.id" v-for="mod in mods">
             <td class="first">
-              {{ mod.name }}
+              <a :href="mod.gbLink" class="gb-link" target="_blank" rel="noopener">{{ 
+                mod.name
+              }}</a>
               <span class="mod-id">[{{ mod.id }}]</span>
             </td>
             <td class="second">
@@ -129,8 +131,6 @@ const vue = {
   },
 };
 
-// vue.reloadPage();
-
 export default vue;
 </script>
 
@@ -152,6 +152,7 @@ export default vue;
   color: #666;
   font-style: italic;
   font-size: 12pt;
+  padding-left: 5px;
 
   @media (max-width: 800px) {
     font-size: 10pt;
@@ -189,5 +190,9 @@ export default vue;
 .search {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.gb-link {
+  color: rgb(33, 37, 41);
 }
 </style>
