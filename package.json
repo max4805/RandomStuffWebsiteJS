@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "rm -rf target && cd api && npm install && cd .. && cp -r api target",
-    "start": "cd target && npm run start"
+    "start": "cd target && npm run start",
+    "test": "cd api && npm run lint-nofix && npm run test"
   }
 }
