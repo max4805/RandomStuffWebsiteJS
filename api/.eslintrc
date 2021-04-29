@@ -1,0 +1,30 @@
+{
+    "root": true,
+    "extends": "eslint:recommended",
+    "env": {
+        "node": true,
+        "es2017": true
+    },
+    "rules": {
+        "indent": ["warn", 4],
+        "quotes": ["warn", "single"],
+        "max-len": ["error", { "code": 180 }],
+        "no-multiple-empty-lines": ["warn", { "max": 1 }],
+        "no-mixed-spaces-and-tabs": ["error"],
+        "no-trailing-spaces": ["warn"],
+        "space-before-blocks": ["warn"],
+        "space-before-function-paren": ["warn", "never"],
+        "space-in-parens": ["warn", "never"],
+        "space-infix-ops": ["warn"],
+        "spaced-comment": ["warn", "always"],
+        "keyword-spacing": ["warn", { "before": true, "after": true }],
+        "array-bracket-spacing": ["warn", "never"],
+        "key-spacing": ["warn", { "beforeColon": false, "afterColon": true }],
+        "brace-style": ["warn", "stroustrup"],
+        "eqeqeq": ["warn"],
+        "arrow-spacing": ["warn"],
+        "no-duplicate-imports": ["warn"],
+        "no-var": ["warn"],
+        "no-else-return": ["warn"]
+    }
+}

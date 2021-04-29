@@ -1,0 +1,25 @@
+{
+  "name": "max480-random-stuff-api",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "lint": "eslint --fix .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "archiver": "^5.3.0",
+    "axios": "^0.21.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-async-handler": "^1.1.4",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "jest": "^26.6.3"
+  }
+}
