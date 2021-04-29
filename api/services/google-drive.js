@@ -1,14 +1,17 @@
 const debug = require('debug')('google-drive');
 const axios = require('axios');
+const memorycache = require('./memorycache');
 
-function listPageOfFilesInFolder(folderId, pageToken = null) {
-    const url = `https://www.googleapis.com/drive/v3/files?key=${process.env.GOOGLE_DRIVE_KEY}&q=`
-        + encodeURIComponent(`'${folderId}' in parents and trashed = false`)
-        + (pageToken === null ? '' : `&pageToken=${pageToken}`);
+const listPageOfFilesInFolder = async(folderId, pageToken = null) => {
+    return await memorycache('google-drive/' + folderId + '/' + pageToken, 3600000, async() => {
+        const url = `https://www.googleapis.com/drive/v3/files?key=${process.env.GOOGLE_DRIVE_KEY}&q=`
+            + encodeURIComponent(`'${folderId}' in parents and trashed = false`)
+            + (pageToken === null ? '' : `&pageToken=${pageToken}`);
 
-    debug('File list: calling Google Drive URL %s', url);
+        debug('File list: calling Google Drive URL %s', url);
 
-    return axios.get(url);
+        return await axios.get(url);
+    });
 }
 
 /**
