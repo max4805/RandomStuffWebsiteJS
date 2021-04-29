@@ -4,6 +4,7 @@ const logger = require('morgan');
 const history = require('connect-history-api-fallback');
 
 let assetsRouter = require('./routes/assets');
+let modsRouter = require('./routes/mods');
 
 let app = express();
 
@@ -17,5 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/assets', assetsRouter);
+app.use('/api/mods', modsRouter);
 
 module.exports = app;
