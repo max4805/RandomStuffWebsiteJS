@@ -16,7 +16,7 @@
     "axios": "^0.21.1",
     "connect-history-api-fallback": "^1.6.0",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "express": "~4.17.1",
     "express-async-handler": "^1.1.4",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
