@@ -19,9 +19,13 @@
         <tbody>
           <tr v-bind:key="mod.id" v-for="mod in mods">
             <td class="first">
-              <a :href="mod.gbLink" class="gb-link" target="_blank" rel="noopener">{{ 
-                mod.name
-              }}</a>
+              <a
+                :href="mod.gbLink"
+                class="gb-link"
+                target="_blank"
+                rel="noopener"
+                >{{ mod.name }}</a
+              >
               <span class="mod-id">[{{ mod.id }}]</span>
             </td>
             <td class="second">

@@ -1,6 +1,22 @@
 <template>
   <div id="app" class="container">
     <div id="nav">
+      <a
+        href="https://max480-random-stuff.appspot.com/celeste/custom-entity-catalog"
+        class="active"
+        >Custom Entity Catalog</a
+      >
+      |
+      <a
+        href="https://max480-random-stuff.appspot.com/celeste/everest-yaml-validator"
+        >everest.yaml validator</a
+      >
+      |
+      <a
+        href="https://max480-random-stuff.appspot.com/celeste/update-checker-status"
+        >Update Checker status</a
+      >
+      |
       <router-link to="/banana-mirror-browser">
         Banana Mirror Browser
       </router-link>
