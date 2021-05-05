@@ -198,5 +198,10 @@ export default vue;
 
 .gb-link {
   color: rgb(33, 37, 41);
+  text-decoration: none;
+}
+
+.gb-link:hover {
+  text-decoration: underline;
 }
 </style>

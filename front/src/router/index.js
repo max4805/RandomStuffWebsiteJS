@@ -17,6 +17,14 @@ const routes = [
       title: "Banana Mirror Browser",
     },
   },
+  {
+    path: "/celeste-mapping-sprite-resources",
+    name: "AssetBrowser",
+    component: () => import("../views/AssetBrowser.vue"),
+    meta: {
+      title: "Celeste Mapping Sprite Resources",
+    },
+  },
 ];
 
 const router = new VueRouter({
