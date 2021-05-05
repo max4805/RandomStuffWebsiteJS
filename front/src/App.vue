@@ -42,6 +42,11 @@
   a {
     font-weight: bold;
     color: #2c3e50;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     &.router-link-exact-active {
       color: #42b983;
