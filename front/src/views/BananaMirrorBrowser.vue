@@ -204,4 +204,14 @@ export default vue;
 .gb-link:hover {
   text-decoration: underline;
 }
+
+// dark theme colors
+@media (prefers-color-scheme: dark) {
+  .gb-link {
+    color: #dedad6;
+  }
+  .mod-id {
+    color: #8e8e8e;
+  }
+}
 </style>
