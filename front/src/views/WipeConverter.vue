@@ -32,6 +32,12 @@
       Convert!
     </button>
 
+    <div class="error" v-if="error">
+      <div class="warning">
+        An error occurred. Check that your images are valid.
+      </div>
+    </div>
+
     <div class="converting" v-if="converting">Converting...</div>
     <div class="progress" v-if="converting">
       <div
@@ -114,6 +120,12 @@ h1 {
 
 .converting {
   font-size: 18pt;
+  margin: 20px;
+}
+
+.error {
+  font-size: 18pt;
+  color: #ff8000;
   margin: 20px;
 }
 </style>
