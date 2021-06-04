@@ -16,3 +16,8 @@ test('should convert a white wipe to no triangles', async() => {
     const triangles = await wipes.convertWipeToTriangles('tests/assets/testwipe_white.png');
     expect(triangles).toHaveLength(0);
 });
+
+test('should not convert a wipe that is not an image', async() => {
+    const triangles = await wipes.convertWipeToTriangles('tests/assets/testnotwipe.txt');
+    expect(triangles).toBeNull();
+});

@@ -25,6 +25,14 @@ const routes = [
       title: "Celeste Mapping Sprite Resources",
     },
   },
+  {
+    path: "/wipe-converter",
+    name: "WipeConverter",
+    component: () => import("../views/WipeConverter.vue"),
+    meta: {
+      title: "Wipe Converter",
+    },
+  },
 ];
 
 const router = new VueRouter({

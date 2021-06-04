@@ -7,22 +7,24 @@ const jimp = require('jimp');
  * Each triangle is an array of length 3, each point being represented by an [x, y] array.
  *
  * @param {String} path Path to the image to convert to triangles
- * @returns {Array{Array{Array{Number}}}} An array of triangles
+ * @returns {Array{Array{Array{Number}}}|null} An array of triangles, or null if the image could not be read
  */
 const convertWipeToTriangles = async(path) => {
+    let image;
     try {
-        let image = await jimp.read(path);
-        const solution1 = findTriangles(image, true);
         image = await jimp.read(path);
-        const solution2 = findTriangles(image, false);
-
-        // we want to retain the solution with the least amount of triangles.
-        return solution1.length < solution2.length ? solution1 : solution2;
     }
     catch (e) {
-        console.error(`Could not scan ${path} for triangle conversion`, e);
+        console.error(`Could not load image ${path} for triangle conversion`, e);
         return null;
     }
+
+    const solution1 = findTriangles(image.clone(), true);
+    image = await jimp.read(path);
+    const solution2 = findTriangles(image, false);
+
+    // we want to retain the solution with the least amount of triangles.
+    return solution1.length < solution2.length ? solution1 : solution2;
 };
 
 /**
