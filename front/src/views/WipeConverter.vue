@@ -128,4 +128,10 @@ h1 {
   color: #ff8000;
   margin: 20px;
 }
+
+@media(prefers-color-scheme: dark) {
+  input[type="file"] {
+    color: #dedad6;
+  }
+}
 </style>
