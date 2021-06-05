@@ -82,20 +82,36 @@ const vue = {
           a.name.localeCompare(b.name)
         );
 
-        // convert them 1 by 1
+        // first, we are going to write the frame count
         const result = [];
+        result.push(selectedFiles.length);
+
+        // then, convert them 1 by 1
         for (let i = 0; i < selectedFiles.length; i++) {
           this.fileProgress = i;
 
           let formData = new FormData();
           formData.append("wipe", selectedFiles[i]);
-          result.push(
-            (await axios.post(`${config.backendUrl}/api/wipes`, formData)).data
-          );
+          const triangles = (
+            await axios.post(`${config.backendUrl}/api/wipes`, formData)
+          ).data;
+
+          // double-flatten (triangles => points => coordinates)
+          const coordinates = triangles.flatMap((t) => t).flatMap((p) => p);
+
+          // add the coordinate count, then the coordinates themselves, to the array.
+          result.push(coordinates.length);
+          coordinates.forEach((c) => result.push(c));
         }
 
         // download the result!
-        download(JSON.stringify(result), "wipe.json", "application/json");
+        download(
+          new Blob([new Uint16Array(result)], {
+            type: "application/octet-stream",
+          }),
+          "wipe.bin",
+          "application/octet-stream"
+        );
       } catch (e) {
         console.error(e);
         this.error = true;
@@ -129,7 +145,7 @@ h1 {
   margin: 20px;
 }
 
-@media(prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   input[type="file"] {
     color: #dedad6;
   }
