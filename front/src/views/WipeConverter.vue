@@ -100,7 +100,8 @@ const vue = {
           const coordinates = triangles.flatMap((t) => t).flatMap((p) => p);
 
           // add the coordinate count, then the coordinates themselves, to the array.
-          result.push(coordinates.length);
+          result.push(coordinates.length % 65536);
+          result.push(Math.floor(coordinates.length / 65536));
           coordinates.forEach((c) => result.push(c));
         }
 
