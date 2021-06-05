@@ -20,7 +20,6 @@ const convertWipeToTriangles = async(path) => {
     }
 
     const solution1 = findTriangles(image.clone(), true);
-    image = await jimp.read(path);
     const solution2 = findTriangles(image, false);
 
     // we want to retain the solution with the least amount of triangles.
@@ -97,11 +96,11 @@ const extendRectangleFrom = (image, x, y, verticalScan) => {
     if (verticalScan) {
         // extend height, then width, while the contents of the rectangle are all black.
         let idx = image.getPixelIndex(x, y + height);
-        while (y + height < image.bitmap.height - 1 && isBlack(image.bitmap.data.slice(idx, idx + 4))) {
+        while (y + height < image.bitmap.height && isBlack(image.bitmap.data.slice(idx, idx + 4))) {
             height++;
             idx = image.getPixelIndex(x, y + height);
         }
-        while (x + width < image.bitmap.width - 1 && rectangleIsAllBlack(image, x + width, y, 1, height)) {
+        while (x + width < image.bitmap.width && rectangleIsAllBlack(image, x + width, y, 1, height)) {
             width++;
         }
     }
@@ -149,26 +148,19 @@ const isBlack = (color) => {
 }
 
 /**
- * Splits a rectangle into 1 or 2 triangles.
- * (If a "rectangle" is just a line or a single pixel, it can be represented with a single triangle.)
+ * Splits a rectangle into 2 triangles.
  *
  * @param {Number} x the starting X position
  * @param {Number} y the starting Y position
  * @param {*} width the width of the rectangle
  * @param {*} height the height of the rectangle
- * @returns {Array{Array{Number}}} an array containing 1 or 2 triangles
+ * @returns {Array{Array{Number}}} an array containing 2 triangles
  */
 const getTrianglesFromRectangle = (x, y, width, height) => {
     // first triangle
-    const tri1 = [[x, y], [x + width - 1, y], [x + width - 1, y + height - 1]];
-
-    // second triangle, only necessary if the rectangle is actually a rectangle (not a line or a single pixel)
-    if (width !== 1 && height !== 1) {
-        const tri2 = [[x, y], [x, y + height - 1], [x + width - 1, y + height - 1]];
-        return [tri1, tri2];
-    }
-
-    return [tri1];
+    const tri1 = [[x, y], [x + width, y], [x + width, y + height]];
+    const tri2 = [[x, y], [x, y + height], [x + width, y + height]];
+    return [tri1, tri2];
 }
 
 module.exports = { convertWipeToTriangles };
