@@ -12,6 +12,8 @@
           target="_blank"
           >max480's Helping Hand</a
         >, to use them in-game.
+        <b>It is recommended to have 60 frames in total</b> (30 frames for the
+        "wipe in" animation, 30 for "wipe out").
       </p>
       <p>
         Select all your "fade in" or "fade out" frames, hit "Convert", and be
