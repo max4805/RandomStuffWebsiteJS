@@ -10,21 +10,21 @@ test('should return mod list', async() => {
             return Promise.resolve({
                 data:
                     'super ogmo boy:\n' +
-                    '  MirrorURL: https://celestemodupdater.0x0a.de/banana-mirror/389157.zip\n' +
+                    '  URL: https://celestemodupdater.0x0a.de/banana-mirror/389157.zip\n' +
                     '  GameBananaType: Map\n' +
                     '  Version: NoVersion\n' +
                     '  LastUpdate: 1531484704\n' +
                     '  GameBananaId: 200736\n' +
                     '  xxHash: [1a3dfff696299862]\n' +
-                    '  URL: https://gamebanana.com/mmdl/389157\n' +
+                    '  MirrorURL: https://gamebanana.com/mmdl/389157\n' +
                     'WobbleDecals:\n' +
-                    '  MirrorURL: https://celestemodupdater.0x0a.de/banana-mirror/430826.zip\n' +
+                    '  URL: https://celestemodupdater.0x0a.de/banana-mirror/430826.zip\n' +
                     '  GameBananaType: Mod\n' +
                     '  Version: 1.0.0\n' +
                     '  LastUpdate: 1567521581\n' +
                     '  GameBananaId: 53654\n' +
                     '  xxHash: [49ec0c58414c99ea]\n' +
-                    '  URL: https://gamebanana.com/mmdl/430826'
+                    '  MirrorURL: https://gamebanana.com/mmdl/430826'
             });
         case 'https://backend.com/modsearchdatabase.yaml':
             return Promise.resolve({

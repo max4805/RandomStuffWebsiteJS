@@ -34,7 +34,7 @@ const getModList = async() => {
             return {
                 name: matchingMod.Name,
                 id: mod[0],
-                url: mod[1].MirrorURL,
+                url: mod[1].URL,
                 gbLink: `https://gamebanana.com/${mod[1].GameBananaType.toLowerCase()}s/${mod[1].GameBananaId}`
             };
         })
