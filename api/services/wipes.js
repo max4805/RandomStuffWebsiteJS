@@ -19,6 +19,7 @@ const convertWipeToTriangles = async(path) => {
         return null;
     }
 
+    // try scanning vertically, then horizontally.
     const solution1 = findTriangles(image.clone(), true);
     const solution2 = findTriangles(image, false);
 
@@ -39,11 +40,12 @@ const convertWipeToTriangles = async(path) => {
 const findTriangles = (image, verticalScan) => {
     const result = [];
 
+    // scan the image looking for a black pixel.
     let x = 0, y = 0;
     while (x < image.bitmap.width && y < image.bitmap.height) {
         const idx = image.getPixelIndex(x, y);
         if (isBlack(image.bitmap.data.slice(idx, idx + 4))) {
-            // black pixel! extend rectangle from here.
+            // black pixel! extend rectangle from here (vertically first, then horizontally first).
             const dimensions1 = extendRectangleFrom(image, x, y, true);
             const dimensions2 = extendRectangleFrom(image, x, y, false);
 
@@ -157,7 +159,6 @@ const isBlack = (color) => {
  * @returns {Array{Array{Number}}} an array containing 2 triangles
  */
 const getTrianglesFromRectangle = (x, y, width, height) => {
-    // first triangle
     const tri1 = [[x, y], [x + width, y], [x + width, y + height]];
     const tri2 = [[x, y], [x, y + height], [x + width, y + height]];
     return [tri1, tri2];

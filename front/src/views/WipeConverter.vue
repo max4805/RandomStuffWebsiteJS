@@ -2,17 +2,41 @@
   <div class="wipe-converter">
     <h1>Wipe Converter</h1>
 
-    <p>
-      Use this tool to convert your wipes from a series of PNG files to the
-      format expected by
-      <a href="https://gamebanana.com/mods/53687" rel="noopener" target="_blank"
-        >max480's Helping Hand</a
-      >, to use them in-game.
-    </p>
-    <p>
-      Select all your "fade in" or "fade out" frames, hit "Convert", and be
-      patient!
-    </p>
+    <div class="text col-lg-8 offset-lg-2">
+      <p>
+        Use this tool to convert your wipes from a series of PNG files to the
+        format expected by
+        <a
+          href="https://gamebanana.com/mods/53687"
+          rel="noopener"
+          target="_blank"
+          >max480's Helping Hand</a
+        >, to use them in-game.
+      </p>
+      <p>
+        Select all your "fade in" or "fade out" frames, hit "Convert", and be
+        patient!
+      </p>
+      <div>
+        Once you got the file:
+        <ul>
+          <li>
+            rename the file to either <code>wipe-in.bin</code> or
+            <code>wipe-out.bin</code>
+          </li>
+          <li>
+            move it to your mod, in
+            <code>Mods/yourmod/MaxHelpingHandWipes/yournickname/wipename</code>
+            folder
+          </li>
+          <li>
+            in Ahorn, use
+            <code>MaxHelpingHand/CustomWipe:yournickname/wipename</code> as a
+            wipe
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <label class="btn btn-default">
       <input
@@ -82,6 +106,10 @@ const vue = {
           a.name.localeCompare(b.name)
         );
 
+        // the output bin is a binary format:
+        // [frame count], for each frame { [coordinate count], [coordinate list] }
+        // all numbers are encoded on 2 bytes, except [coordinate count] because it may exceed 65535.
+
         // first, we are going to write the frame count
         const result = [];
         result.push(selectedFiles.length);
@@ -90,13 +118,14 @@ const vue = {
         for (let i = 0; i < selectedFiles.length; i++) {
           this.fileProgress = i;
 
+          // send file to the API to receive a triangle list
           let formData = new FormData();
           formData.append("wipe", selectedFiles[i]);
           const triangles = (
             await axios.post(`${config.backendUrl}/api/wipes`, formData)
           ).data;
 
-          // double-flatten (triangles => points => coordinates)
+          // double-flatten (triangles => points => coordinates) to end up with a coordinate list
           const coordinates = triangles.flatMap((t) => t).flatMap((p) => p);
 
           // add the coordinate count, then the coordinates themselves, to the array.
@@ -105,7 +134,7 @@ const vue = {
           coordinates.forEach((c) => result.push(c));
         }
 
-        // download the result!
+        // download the result as a bin file!
         download(
           new Blob([new Uint16Array(result)], {
             type: "application/octet-stream",
@@ -118,11 +147,6 @@ const vue = {
         this.error = true;
       }
       this.converting = false;
-    },
-  },
-  computed: {
-    pageCount: function () {
-      return Math.max(1, Math.floor((this.totalCount - 1) / 20 + 1));
     },
   },
 };
@@ -150,5 +174,10 @@ h1 {
   input[type="file"] {
     color: #dedad6;
   }
+}
+
+.text {
+  text-align: left;
+  margin-bottom: 30px;
 }
 </style>
