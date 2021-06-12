@@ -28,7 +28,6 @@ const getModList = async() => {
 
     // match mods from both files to get the full info
     return Object.entries(everestUpdate)
-        .filter(mod => mod[1].GameBananaType !== 'Mod' || mod[1].GameBananaId !== 53674)
         .map(mod => {
             const matchingMod = modSearchDatabase.filter(one => one.GameBananaType === mod[1].GameBananaType && one.GameBananaId === mod[1].GameBananaId)[0];
             return {
