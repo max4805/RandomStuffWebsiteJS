@@ -27,17 +27,29 @@ const getModList = async() => {
     ]);
 
     // match mods from both files to get the full info
-    return Object.entries(everestUpdate)
+    return modSearchDatabase
         .map(mod => {
-            const matchingMod = modSearchDatabase.filter(one => one.GameBananaType === mod[1].GameBananaType && one.GameBananaId === mod[1].GameBananaId)[0];
+            const files = {};
+            Object.entries(everestUpdate)
+                .filter(entry => entry[1].GameBananaType === mod.GameBananaType && entry[1].GameBananaId === mod.GameBananaId)
+                .forEach(entry => files[entry[0]] = entry[1].URL);
+
             return {
-                name: matchingMod.Name,
-                id: mod[0],
-                url: mod[1].URL,
-                gbLink: `https://gamebanana.com/${mod[1].GameBananaType.toLowerCase()}s/${mod[1].GameBananaId}`
+                name: mod.Name,
+                author: mod.Author,
+                description: mod.Description,
+                likes: mod.Likes,
+                views: mod.Views,
+                downloads: mod.Downloads,
+                text: mod.Text,
+                createdDate: mod.CreatedDate,
+                screenshots: mod.Screenshots,
+                files: files,
+                gbLink: `https://gamebanana.com/${mod.GameBananaType.toLowerCase()}s/${mod.GameBananaId}`
             };
         })
-        .sort((a, b) => a.name.localeCompare(b.name));
+        .filter(a => Object.keys(a.files).length !== 0)
+        .sort((a, b) => b.createdDate - a.createdDate);
 }
 
 module.exports = { getModList };

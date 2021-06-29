@@ -15,28 +15,15 @@
           placeholder="Search a mod..."
         />
       </form>
-      <table class="table table-striped">
-        <tbody>
-          <tr v-bind:key="mod.id" v-for="mod in mods">
-            <td class="first">
-              <a
-                :href="mod.gbLink"
-                class="gb-link"
-                target="_blank"
-                rel="noopener"
-                >{{ mod.name }}</a
-              >
-              <span class="mod-id">[{{ mod.id }}]</span>
-            </td>
-            <td class="second">
-              <a class="btn btn-primary" :href="'everest:' + mod.url">
-                1-click install
-              </a>
-              <a class="btn btn-secondary" :href="mod.url">Download</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="row">
+        <div
+          v-bind:key="mod.id"
+          v-for="mod in mods"
+          class="col-xl-4 col-md-6 col-sm-12"
+        >
+          <ModListItem :mod="mod" />
+        </div>
+      </div>
       <div class="paginator">
         <button
           class="btn btn-outline-secondary"
@@ -75,8 +62,10 @@
 <script>
 import axios from "axios";
 import config from "../config";
+import ModListItem from "../components/ModListItem.vue";
 
 const vue = {
+  components: { ModListItem },
   name: "banana-mirror-browser",
   data: () => ({
     page: 1,
@@ -139,39 +128,6 @@ export default vue;
 </script>
 
 <style scoped lang="scss">
-.first {
-  text-align: left;
-  vertical-align: middle;
-  font-size: 14pt;
-
-  @media (max-width: 800px) {
-    font-size: 12pt;
-  }
-}
-.second {
-  text-align: right;
-  vertical-align: middle;
-}
-.mod-id {
-  color: #666;
-  font-style: italic;
-  font-size: 12pt;
-  padding-left: 5px;
-
-  @media (max-width: 800px) {
-    font-size: 10pt;
-  }
-}
-.btn {
-  margin: 2px;
-}
-
-@media (max-width: 500px) {
-  .only-if-wide-enough {
-    display: none;
-  }
-}
-
 .loading,
 .error {
   margin-top: 30px;
@@ -194,24 +150,5 @@ export default vue;
 .search {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.gb-link {
-  color: rgb(33, 37, 41);
-  text-decoration: none;
-}
-
-.gb-link:hover {
-  text-decoration: underline;
-}
-
-// dark theme colors
-@media (prefers-color-scheme: dark) {
-  .gb-link {
-    color: #dedad6;
-  }
-  .mod-id {
-    color: #8e8e8e;
-  }
 }
 </style>

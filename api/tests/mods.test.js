@@ -32,43 +32,39 @@ test('should return mod list', async() => {
                     '- GameBananaType: Mod\n' +
                     '  GameBananaId: 53654\n' +
                     '  Name: Wobble Decals\n' +
-                    '  Authors: [JaThePlayer]\n' +
+                    '  Author: JaThePlayer\n' +
                     '  Description: \'\'\n' +
                     '  Likes: 3\n' +
                     '  Views: 3373\n' +
                     '  Downloads: 56\n' +
                     '  Text: This small code mod allows mod makers to easily make their custom decals "wobble"\n' +
-                    '    (just like grass, for example). To use, the path to your decal needs to contain\n' +
-                    '    a "wobbleDecals" (case sensitive) subfolder. That\'s it!\n' +
+                    '  CreatedDate: 5151818\n' +
+                    '  Screenshots: ["1"]\n' +
                     '  CategoryId: 4632\n' +
                     '  CategoryName: Other/Misc\n' +
                     '- GameBananaType: Skin\n' +
                     '  GameBananaId: 171934\n' +
                     '  Name: Prideline\n' +
-                    '  Authors: [IsaGoodFriend]\n' +
+                    '  Author: IsaGoodFriend\n' +
                     '  Description: \'\'\n' +
                     '  Likes: 14\n' +
                     '  Views: 28859\n' +
                     '  Downloads: 671\n' +
                     '  Text: \'Prideline is a hair color mod. It allows you to change Madeline\'\'s hair color\n' +
-                    '    to any number of pride flags, including custom colors! Custom flag files are a\n' +
-                    '    text file with the ".flag" extention. Each line is a new color, (running from\n' +
-                    '    top to bottom) going from the top of Maddy\'\'s head to the end of her hair. Custom\n' +
-                    '    flags are stored in \'\'Saves/Prideline\'\'. NOTE: If you had custom flags before\n' +
-                    '    1.15, they won\'\'t be read until they\'\'re moved. Example: FF0018 FF852C FFFF41\n' +
                     '    088018 0808F9 86087D\'\n' +
+                    '  CreatedDate: 5151819\n' +
+                    '  Screenshots: ["2"]\n' +
                     '- GameBananaType: Map\n' +
                     '  GameBananaId: 200736\n' +
                     '  Name: Super Ogmo Boy remake\n' +
-                    '  Authors: [minecraftgamerpc64, Bowling]\n' +
+                    '  Author: minecraftgamerpc64\n' +
                     '  Description: \'\'\n' +
                     '  Likes: 1\n' +
                     '  Views: 2102\n' +
                     '  Downloads: 53\n' +
-                    '  Text: super ogmo boy was made by minecraftgamerpc64 go play it https://minecraftgamerpc66.itch.io/super-ogmo-boy\n' +
-                    '    this is a shitpost level and itll take 30 seconds at best, so if youre looking\n' +
-                    '    for actual gameplay youre at the wrong place. special thanks to minecraftgamerpc\n' +
-                    '    giving me the assets of the game for this remake.'
+                    '  CreatedDate: 5151820\n' +
+                    '  Screenshots: ["3"]\n' +
+                    '  Text: super ogmo boy was made by minecraftgamerpc64 go play it https://minecraftgamerpc66.itch.io/super-ogmo-boy\n'
             }
             );
         default:
@@ -83,14 +79,28 @@ test('should return mod list', async() => {
     expect(list).toStrictEqual([
         {
             name: 'Super Ogmo Boy remake',
-            id: 'super ogmo boy',
-            url: 'https://celestemodupdater.0x0a.de/banana-mirror/389157.zip',
+            author: 'minecraftgamerpc64',
+            description: '',
+            likes: 1,
+            views: 2102,
+            downloads: 53,
+            text: 'super ogmo boy was made by minecraftgamerpc64 go play it https://minecraftgamerpc66.itch.io/super-ogmo-boy',
+            createdDate: 5151820,
+            screenshots: ['3'],
+            files: {'super ogmo boy': 'https://celestemodupdater.0x0a.de/banana-mirror/389157.zip'},
             gbLink: 'https://gamebanana.com/maps/200736'
         },
         {
             name: 'Wobble Decals',
-            id: 'WobbleDecals',
-            url: 'https://celestemodupdater.0x0a.de/banana-mirror/430826.zip',
+            author: 'JaThePlayer',
+            description: '',
+            likes: 3,
+            views: 3373,
+            downloads: 56,
+            text: 'This small code mod allows mod makers to easily make their custom decals "wobble"',
+            createdDate: 5151818,
+            screenshots: ['1'],
+            files: {'WobbleDecals': 'https://celestemodupdater.0x0a.de/banana-mirror/430826.zip'},
             gbLink: 'https://gamebanana.com/mods/53654'
         }
     ]);
