@@ -216,7 +216,7 @@ export default {
 
   @media (prefers-color-scheme: dark) {
     background-color: black;
-    opacity: 0.70;
+    opacity: 0.7;
   }
 }
 

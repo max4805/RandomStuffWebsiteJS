@@ -2,10 +2,11 @@ let express = require('express');
 let asyncHandler = require('express-async-handler');
 let _ = require('lodash');
 let modsService = require('../services/mods');
+const memorycache = require('../services/memorycache');
 let router = express.Router();
 
 router.get('/', asyncHandler(async(req, res) => {
-    let list = await modsService.getModList();
+    let list = await memorycache('modsdatabase', 300000, modsService.getModList);
     const page = _.get(req.query, 'page', 1);
     const query = req.query.q;
     if (query !== undefined) {
