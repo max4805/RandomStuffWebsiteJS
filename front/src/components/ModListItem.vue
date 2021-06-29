@@ -206,7 +206,7 @@ export default {
 // extra layer to darken / brighten the blurry background
 .darken {
   background-color: white;
-  opacity: 85%;
+  opacity: 0.85;
   height: 300px;
   width: 100%;
   margin-top: -300px;
@@ -216,7 +216,7 @@ export default {
 
   @media (prefers-color-scheme: dark) {
     background-color: black;
-    opacity: 70%;
+    opacity: 0.70;
   }
 }
 
