@@ -12,6 +12,11 @@ let app = express();
 
 app.use(fileUpload());
 
+app.use((_, res, next) => {
+    res.header('Content-Security-Policy', 'default-src \'self\'; style-src \'self\' \'unsafe-inline\'; img-src https:; object-src \'none\';');
+    next();
+})
+
 if (process.env.NODE_ENV === 'production') {
     app.use(history());
 }

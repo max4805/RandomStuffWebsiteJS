@@ -82,7 +82,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <p v-html="mod.text"></p>
+            <p class="gamebanana-description-html" v-html="mod.text"></p>
           </div>
         </div>
       </div>
@@ -312,6 +312,52 @@ export default {
 
   .btn {
     margin: 2px;
+  }
+}
+</style>
+
+<style lang="scss">
+// **non-scoped** CSS for GameBanana formatting
+// (HTML from GameBanana doesn't have the proper attributes for scoped styles)
+.gamebanana-description-html {
+  .GreenColor {
+    color: #3caa3a;
+    @media (prefers-color-scheme: dark) {
+      color: rgb(110, 225, 108);
+    }
+  }
+  .RedColor {
+    color: #e62222;
+    @media (prefers-color-scheme: dark) {
+      color: rgb(255, 78, 78);
+    }
+  }
+  .Spoiler {
+    background: rgba(0, 0, 0, 0.25);
+    position: relative;
+    cursor: help;
+    color: transparent;
+
+    @media (prefers-color-scheme: dark) {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    &:hover {
+      background: none;
+      color: rgb(44, 62, 80);
+
+      @media (prefers-color-scheme: dark) {
+        color: rgb(222, 218, 214);
+      }
+    }
+
+    & > * {
+      visibility: hidden;
+
+      &:hover {
+        visibility: visible;
+      }
+    }
   }
 }
 </style>
