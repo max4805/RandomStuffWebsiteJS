@@ -12,7 +12,7 @@
         <input
           v-model="query"
           class="search form-control"
-          placeholder="Search a mod..."
+          placeholder="Search for a mod..."
         />
       </form>
       <div class="row">
