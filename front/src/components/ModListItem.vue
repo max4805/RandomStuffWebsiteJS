@@ -359,5 +359,12 @@ export default {
       }
     }
   }
+
+  // better contrast for links in dark mode
+  @media (prefers-color-scheme: dark) {
+    a {
+      color: #47a0ff;
+    }
+  }
 }
 </style>
