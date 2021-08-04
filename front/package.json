@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "bootstrap": "^5.0.2",
+    "bootstrap": "^5.1.0",
     "core-js": "^3.16.0",
     "downloadjs": "^1.4.7",
     "vue": "^2.6.14",
