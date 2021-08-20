@@ -12,11 +12,11 @@ const getModList = async() => {
     // load all info from both files at the same time
     await Promise.all([
         (async() => {
-            const everestUpdateYaml = await axios.get(`${process.env.GOOGLE_COMPUTE_BACKEND}/everestupdate.yaml`);
+            const everestUpdateYaml = await axios.get('https://max480-random-stuff.appspot.com/celeste/everest_update.yaml');
             everestUpdate = yaml.load(everestUpdateYaml.data);
         })(),
         (async() => {
-            const modSearchDatabaseYaml = await axios.get(`${process.env.GOOGLE_COMPUTE_BACKEND}/modsearchdatabase.yaml`);
+            const modSearchDatabaseYaml = await axios.get('https://max480-random-stuff.appspot.com/celeste/mod_search_database.yaml');
             modSearchDatabase = yaml.load(modSearchDatabaseYaml.data);
         })()
     ]);

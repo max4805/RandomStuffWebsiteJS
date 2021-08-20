@@ -6,7 +6,7 @@ jest.mock('axios');
 test('should return mod list', async() => {
     axios.get.mockImplementation(url => {
         switch (url) {
-        case 'https://backend.com/everestupdate.yaml':
+        case 'https://max480-random-stuff.appspot.com/celeste/everest_update.yaml':
             return Promise.resolve({
                 data:
                     'super ogmo boy:\n' +
@@ -26,7 +26,7 @@ test('should return mod list', async() => {
                     '  xxHash: [49ec0c58414c99ea]\n' +
                     '  MirrorURL: https://gamebanana.com/mmdl/430826'
             });
-        case 'https://backend.com/modsearchdatabase.yaml':
+        case 'https://max480-random-stuff.appspot.com/celeste/mod_search_database.yaml':
             return Promise.resolve({
                 data:
                     '- GameBananaType: Mod\n' +
@@ -71,8 +71,6 @@ test('should return mod list', async() => {
             return Promise.reject();
         }
     });
-
-    process.env.GOOGLE_COMPUTE_BACKEND = 'https://backend.com';
 
     const list = await mods.getModList();
 
