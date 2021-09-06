@@ -5,20 +5,24 @@
         href="https://max480-random-stuff.appspot.com/celeste/custom-entity-catalog"
         >Custom Entity Catalog</a
       >
-      |
+      <span class="sep"> | </span>
       <a
         href="https://max480-random-stuff.appspot.com/celeste/everest-yaml-validator"
         >everest.yaml validator</a
       >
-      |
+      <span class="sep"> | </span>
       <a
         href="https://max480-random-stuff.appspot.com/celeste/update-checker-status"
         >Update Checker status</a
       >
-      |
-      <router-link to="/banana-mirror-browser">
-        Banana Mirror Browser
-      </router-link>
+      <span class="sep"> | </span>
+      <router-link to="/banana-mirror-browser"
+        >Banana Mirror Browser</router-link
+      >
+      <span class="sep"> | </span>
+      <a href="https://max480-random-stuff.appspot.com/celeste/font-generator"
+        >Font Generator</a
+      >
     </div>
     <router-view />
   </div>
@@ -50,6 +54,17 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+
+// list-style navbar when the resolution is too small
+@media (max-width: 450px) {
+  .sep {
+    display: none;
+  }
+
+  #nav a {
+    display: block;
   }
 }
 
