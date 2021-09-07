@@ -13,7 +13,7 @@ let app = express();
 app.use(fileUpload());
 
 app.use((_, res, next) => {
-    res.header('Content-Security-Policy', 'default-src \'self\'; style-src \'self\' \'unsafe-inline\'; img-src https:; object-src \'none\';');
+    res.header('Content-Security-Policy', 'default-src \'self\'; style-src \'self\' \'unsafe-inline\'; img-src https:; frame-ancestors \'none\'; object-src \'none\';');
     next();
 })
 
