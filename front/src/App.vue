@@ -23,6 +23,8 @@
       <a href="https://max480-random-stuff.appspot.com/celeste/font-generator"
         >Font Generator</a
       >
+      <span class="sep"> | </span>
+      <router-link to="/wipe-converter">Wipe Converter</router-link>
     </div>
     <router-view />
   </div>
