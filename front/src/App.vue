@@ -19,12 +19,16 @@
       <router-link to="/banana-mirror-browser"
         >Banana Mirror Browser</router-link
       >
-      <span class="sep"> | </span>
+      <span class="sep break"> | </span>
       <a href="https://max480-random-stuff.appspot.com/celeste/font-generator"
         >Font Generator</a
       >
       <span class="sep"> | </span>
       <router-link to="/wipe-converter">Wipe Converter</router-link>
+      <span class="sep"> | </span>
+      <a href="https://max480-random-stuff.appspot.com/discord-bots/"
+        >Discord Bots</a
+      >
     </div>
     <router-view />
   </div>
@@ -67,6 +71,14 @@
 
   #nav a {
     display: block;
+  }
+}
+// line break when the screen is wide enough
+@media (min-width: 1200px) {
+  .break {
+    display: block;
+    height: 0px;
+    overflow: hidden;
   }
 }
 
