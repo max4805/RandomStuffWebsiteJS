@@ -3,31 +3,31 @@
     <div id="nav">
       <a
         href="https://max480-random-stuff.appspot.com/celeste/custom-entity-catalog"
-        >Custom Entity Catalog</a
+        >Custom&nbsp;Entity&nbsp;Catalog</a
       >
       <span class="sep"> | </span>
       <a
         href="https://max480-random-stuff.appspot.com/celeste/everest-yaml-validator"
-        >everest.yaml validator</a
+        >everest.yaml&nbsp;validator</a
       >
       <span class="sep"> | </span>
       <a
         href="https://max480-random-stuff.appspot.com/celeste/update-checker-status"
-        >Update Checker status</a
+        >Update&nbsp;Checker&nbsp;status</a
       >
       <span class="sep"> | </span>
       <router-link to="/banana-mirror-browser"
-        >Banana Mirror Browser</router-link
+        >Banana&nbsp;Mirror&nbsp;Browser</router-link
       >
       <span class="sep break"> | </span>
       <a href="https://max480-random-stuff.appspot.com/celeste/font-generator"
-        >Font Generator</a
+        >Font&nbsp;Generator</a
       >
       <span class="sep"> | </span>
-      <router-link to="/wipe-converter">Wipe Converter</router-link>
+      <router-link to="/wipe-converter">Wipe&nbsp;Converter</router-link>
       <span class="sep"> | </span>
       <a href="https://max480-random-stuff.appspot.com/discord-bots/"
-        >Discord Bots</a
+        >Discord&nbsp;Bots</a
       >
     </div>
     <router-view />
