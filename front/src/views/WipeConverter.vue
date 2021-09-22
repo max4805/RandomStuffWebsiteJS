@@ -19,6 +19,15 @@
         Select all your "fade in" or "fade out" frames, hit "Convert", and be
         patient!
       </p>
+      <div class="alert alert-info">
+        The frames will be converted in alphabetical order. If you numbered them
+        and have 10 frames or more,
+        <b
+          >make sure the first frames are numbered <code>00</code> to
+          <code>09</code></b
+        >
+        (not <code>0</code> to <code>9</code>)!
+      </div>
       <div>
         Once you got the file:
         <ul>
@@ -175,6 +184,16 @@ h1 {
 @media (prefers-color-scheme: dark) {
   input[type="file"] {
     color: #dedad6;
+  }
+
+  .alert-info {
+    color: #fff;
+    border-color: #2c9fc6;
+    background-color: #0e7497;
+
+    code {
+      color: white;
+    }
   }
 }
 
