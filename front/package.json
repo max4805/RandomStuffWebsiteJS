@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.22.0",
     "bootstrap": "^5.1.1",
     "core-js": "^3.18.1",
     "downloadjs": "^1.4.7",
