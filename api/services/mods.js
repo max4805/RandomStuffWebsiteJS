@@ -27,7 +27,19 @@ const getModList = async() => {
             const files = {};
             Object.entries(everestUpdate)
                 .filter(entry => entry[1].GameBananaType === mod.GameBananaType && entry[1].GameBananaId === mod.GameBananaId)
-                .forEach(entry => files[entry[0]] = entry[1].URL);
+                .forEach(entry => {
+                    // find the matching file in the mod search database to get the full info.
+                    const bananaUrl = entry[1].MirrorURL.replace('/mmdl/', '/dl/');
+                    const info = mod.Files.filter(file => file.URL === bananaUrl).map(file => ({
+                        createdDate: file.CreatedDate,
+                        size: file.Size,
+                        name: file.Name,
+                        url: entry[1].URL,
+                        description: file.Description,
+                        order: mod.Files.indexOf(file)
+                    }))[0];
+                    files[entry[0]] = info;
+                });
 
             return {
                 name: mod.Name,
@@ -38,7 +50,7 @@ const getModList = async() => {
                 downloads: mod.Downloads,
                 text: mod.Text,
                 createdDate: mod.CreatedDate,
-                screenshots: mod.Screenshots,
+                screenshots: mod.Screenshots.splice(0, 2),
                 files: files,
                 gbLink: `https://gamebanana.com/${mod.GameBananaType.toLowerCase()}s/${mod.GameBananaId}`
             };

@@ -42,6 +42,9 @@ test('should return mod list', async() => {
                     '  Screenshots: ["1"]\n' +
                     '  CategoryId: 4632\n' +
                     '  CategoryName: Other/Misc\n' +
+                    '  Files:\n' +
+                    '    - {Description: \'\', HasEverestYaml: true, Size: 1005519, CreatedDate: 1567521581,\n' +
+                    '      Downloads: 57, URL: \'https://gamebanana.com/dl/430826\', Name: wobbledecals.zip}\n' +
                     '- GameBananaType: Skin\n' +
                     '  GameBananaId: 171934\n' +
                     '  Name: Prideline\n' +
@@ -64,7 +67,10 @@ test('should return mod list', async() => {
                     '  Downloads: 53\n' +
                     '  CreatedDate: 5151820\n' +
                     '  Screenshots: ["3"]\n' +
-                    '  Text: super ogmo boy was made by minecraftgamerpc64 go play it https://minecraftgamerpc66.itch.io/super-ogmo-boy\n'
+                    '  Text: super ogmo boy was made by minecraftgamerpc64 go play it https://minecraftgamerpc66.itch.io/super-ogmo-boy\n' +
+                    '  Files:\n' +
+                    '    - {Description: \'h\', HasEverestYaml: true, Size: 21132, CreatedDate: 1531484704,\n' +
+                    '      Downloads: 53, URL: \'https://gamebanana.com/dl/389157\', Name: ogm_boy_0ce8e.zip}\n'
             }
             );
         default:
@@ -85,7 +91,14 @@ test('should return mod list', async() => {
             text: 'super ogmo boy was made by minecraftgamerpc64 go play it https://minecraftgamerpc66.itch.io/super-ogmo-boy',
             createdDate: 5151820,
             screenshots: ['3'],
-            files: {'super ogmo boy': 'https://celestemodupdater.0x0a.de/banana-mirror/389157.zip'},
+            files: {'super ogmo boy': {
+                url: 'https://celestemodupdater.0x0a.de/banana-mirror/389157.zip',
+                name: 'ogm_boy_0ce8e.zip',
+                size: 21132,
+                createdDate: 1531484704,
+                description: 'h',
+                order: 0
+            }},
             gbLink: 'https://gamebanana.com/maps/200736'
         },
         {
@@ -98,7 +111,14 @@ test('should return mod list', async() => {
             text: 'This small code mod allows mod makers to easily make their custom decals "wobble"',
             createdDate: 5151818,
             screenshots: ['1'],
-            files: {'WobbleDecals': 'https://celestemodupdater.0x0a.de/banana-mirror/430826.zip'},
+            files: {'WobbleDecals': {
+                url: 'https://celestemodupdater.0x0a.de/banana-mirror/430826.zip',
+                name: 'wobbledecals.zip',
+                size: 1005519,
+                createdDate: 1567521581,
+                description: '',
+                order: 0
+            }},
             gbLink: 'https://gamebanana.com/mods/53654'
         }
     ]);

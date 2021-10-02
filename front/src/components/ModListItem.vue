@@ -107,16 +107,61 @@
               <tbody>
                 <tr
                   v-bind:key="file[0]"
-                  v-for="file in Object.entries(mod.files)"
+                  v-for="file in Object.entries(mod.files).sort(
+                    (a, b) => a[1].order - b[1].order
+                  )"
                 >
                   <td class="first">
-                    {{ file[0] }}
+                    <div>
+                      <div>
+                        <span class="name-full">{{ file[1].name }}</span>
+                        <span class="name-truncated">{{
+                          file[1].name.length > 10
+                            ? file[1].name.substring(0, 15) + "..."
+                            : file[1].name
+                        }}</span>
+                        <span class="secondary smaller large-only">
+                          ({{ file[0] }})</span
+                        >
+                      </div>
+                      <div class="smaller">
+                        {{
+                          file[1].description +
+                          (file[1].description !== "" ? " - " : "")
+                        }}
+                        {{
+                          file[1].size > 1048576
+                            ? (file[1].size / 1048576).toFixed(2) + " MB"
+                            : file[1].size > 1024
+                            ? (file[1].size / 1024).toFixed(2) + " KB"
+                            : file[1].size + " B"
+                        }}
+                        <span class="large-only"
+                          >-
+                          {{
+                            new Date(
+                              file[1].createdDate * 1000
+                            ).toLocaleDateString(undefined, {
+                              hour12: false,
+                              year: "numeric",
+                              month: "2-digit",
+                              day: "2-digit",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              second: "2-digit",
+                            })
+                          }}</span
+                        >
+                      </div>
+                    </div>
                   </td>
                   <td class="second">
-                    <a class="btn btn-primary" :href="'everest:' + file[1]">
+                    <a class="btn btn-primary" :href="'everest:' + file[1].url">
                       1-click install
                     </a>
-                    <a class="btn btn-secondary" :href="file[1]">Download</a>
+                    <a class="btn btn-secondary" :href="file[1].url"
+                      >Download</a
+                    >
                   </td>
                 </tr>
               </tbody>
@@ -242,6 +287,36 @@ export default {
 
   @media (prefers-color-scheme: dark) {
     color: #888;
+  }
+}
+
+// smaller text in italic used in the file list
+.smaller {
+  font-size: 11pt;
+  font-style: italic;
+
+  @media (max-width: 800px) {
+    font-size: 10pt;
+  }
+}
+
+// elements that should only be visible on the largest configuration
+@media (max-width: 990px) {
+  .large-only {
+    display: none;
+  }
+}
+
+// switch to truncated file names if the device width is < 450px
+.name-truncated {
+  display: none;
+}
+@media (max-width: 450px) {
+  .name-truncated {
+    display: inline;
+  }
+  .name-full {
+    display: none;
   }
 }
 
