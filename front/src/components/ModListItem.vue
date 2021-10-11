@@ -380,6 +380,13 @@ export default {
   }
 }
 
+// make Bootstrap not kill the download list in dark theme
+.table-striped > tbody > tr:nth-of-type(2n + 1) > td.first {
+  @media (prefers-color-scheme: dark) {
+    color: #dedad6;
+  }
+}
+
 // style for the download dialog: buttons column
 .second {
   text-align: right;
