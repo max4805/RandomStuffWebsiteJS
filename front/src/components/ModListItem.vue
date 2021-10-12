@@ -57,6 +57,12 @@
         {{ mod.description }}
       </div>
 
+      <img
+        v-if="getPictureFor(mod.featured)"
+        class="featured"
+        :src="getPictureFor(mod.featured)"
+        :title="getLabelFor(mod.featured)"
+      />
       <div class="actions">
         <button class="btn btn-secondary" v-on:click="openDescription">
           Description
@@ -197,6 +203,46 @@ export default {
     closeDownloads() {
       this.downloadsShown = false;
     },
+    getLabelFor(featuredCategory) {
+      switch (featuredCategory) {
+        case "today":
+          return "Best of today";
+        case "week":
+          return "Best of this week";
+        case "month":
+          return "Best of this month";
+        case "3month":
+          return "Best of 3 months";
+        case "6month":
+          return "Best of 6 months";
+        case "year":
+          return "Best of this year";
+        case "alltime":
+          return "Best of all time";
+        default:
+          return "";
+      }
+    },
+    getPictureFor(featuredCategory) {
+      switch (featuredCategory) {
+        case "today":
+          return "";
+        case "week":
+          return "/img/smallstar.png";
+        case "month":
+          return "/img/thirdplace.png";
+        case "3month":
+          return "/img/secondplace.png";
+        case "6month":
+          return "/img/firstplace.png";
+        case "year":
+          return "/img/trophy.png";
+        case "alltime":
+          return "/img/ripe.png";
+        default:
+          return "";
+      }
+    },
   },
 };
 </script>
@@ -327,6 +373,13 @@ export default {
   margin-left: 15px;
   vertical-align: middle;
   padding-left: 10px;
+}
+
+// "featured" star positioning
+.featured {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
 }
 
 // description and download buttons

@@ -45,6 +45,9 @@ test('should return mod list', async() => {
                     '  Files:\n' +
                     '    - {Description: \'\', HasEverestYaml: true, Size: 1005519, CreatedDate: 1567521581,\n' +
                     '      Downloads: 57, URL: \'https://gamebanana.com/dl/430826\', Name: wobbledecals.zip}\n' +
+                    '  Featured:\n' +
+                    '    Category: today\n' +
+                    '    Position: 0\n' +
                     '- GameBananaType: Skin\n' +
                     '  GameBananaId: 171934\n' +
                     '  Name: Prideline\n' +
@@ -119,7 +122,8 @@ test('should return mod list', async() => {
                 description: '',
                 order: 0
             }},
-            gbLink: 'https://gamebanana.com/mods/53654'
+            gbLink: 'https://gamebanana.com/mods/53654',
+            featured: 'today'
         }
     ]);
 });

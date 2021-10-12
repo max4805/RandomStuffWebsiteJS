@@ -41,7 +41,7 @@ const getModList = async() => {
                     files[entry[0]] = info;
                 });
 
-            return {
+            const result = {
                 name: mod.Name,
                 author: mod.Author,
                 description: mod.Description,
@@ -54,6 +54,12 @@ const getModList = async() => {
                 files: files,
                 gbLink: `https://gamebanana.com/${mod.GameBananaType.toLowerCase()}s/${mod.GameBananaId}`
             };
+
+            if (mod.Featured) {
+                result.featured = mod.Featured.Category;
+            }
+
+            return result;
         })
         .filter(a => Object.keys(a.files).length !== 0)
         .sort((a, b) => b.createdDate - a.createdDate);
