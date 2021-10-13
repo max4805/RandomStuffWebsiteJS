@@ -50,9 +50,9 @@ const getModList = async() => {
                 downloads: mod.Downloads,
                 text: mod.Text,
                 createdDate: mod.CreatedDate,
-                screenshots: mod.Screenshots.splice(0, 2),
+                screenshots: mod.MirroredScreenshots,
                 files: files,
-                gbLink: `https://gamebanana.com/${mod.GameBananaType.toLowerCase()}s/${mod.GameBananaId}`
+                gbLink: mod.PageURL
             };
 
             if (mod.Featured) {

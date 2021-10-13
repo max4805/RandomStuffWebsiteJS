@@ -3,11 +3,7 @@
     <div
       class="bg"
       v-if="mod.screenshots.length >= 2"
-      :style="
-        'background: url(\'https://max480-random-stuff.appspot.com/celeste/banana-mirror-image?src=' +
-        mod.screenshots[1] +
-        '\') center / cover;'
-      "
+      :style="'background: url(\'' + mod.screenshots[1] + '\') center / cover;'"
     />
     <div class="darken" v-if="mod.screenshots.length >= 2" />
 
@@ -25,12 +21,7 @@
         <tr style="mod-screenshot-and-meta">
           <td>
             <div class="screenshot">
-              <img
-                :src="
-                  'https://max480-random-stuff.appspot.com/celeste/banana-mirror-image?src=' +
-                  mod.screenshots[0]
-                "
-              />
+              <img :src="mod.screenshots[0]" />
             </div>
           </td>
           <td>
