@@ -13,7 +13,7 @@
           >max480's Helping Hand</a
         >, to use them in-game.
         <b>It is recommended to have 60 frames in total</b> (30 frames for the
-        "wipe in" animation, 30 for "wipe out").
+        "fade in" animation, 30 for "fade out").
       </p>
       <p>
         Select all your "fade in" or "fade out" frames, hit "Convert", and be
@@ -32,8 +32,17 @@
         Once you got the file:
         <ul>
           <li>
-            rename the file to either <code>wipe-in.bin</code> or
-            <code>wipe-out.bin</code>
+            rename it to:
+            <ul>
+              <li>
+                <code>death-wipe.bin</code> (or <code>wipe-out.bin</code>) for
+                the fade to black after death
+              </li>
+              <li>
+                <code>spawn-wipe.bin</code> (or <code>wipe-in.bin</code>) for
+                the fade in when you respawn
+              </li>
+            </ul>
           </li>
           <li>
             move it to your mod, in
@@ -194,6 +203,10 @@ h1 {
     code {
       color: white;
     }
+  }
+
+  a {
+    color: #47a0ff;
   }
 }
 
