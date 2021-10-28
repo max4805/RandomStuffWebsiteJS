@@ -29,6 +29,11 @@
       <a href="https://max480-random-stuff.appspot.com/discord-bots.html"
         >Discord&nbsp;Bots</a
       >
+      <span class="sep"> | </span>
+      <a
+        href="https://max480-random-stuff.appspot.com/celeste/news-network-subscription"
+        >#celeste_news&nbsp;Subscription</a
+      >
     </div>
     <router-view />
   </div>
