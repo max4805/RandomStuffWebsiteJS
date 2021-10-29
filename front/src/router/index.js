@@ -6,8 +6,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: () => import("../views/Home.vue"),
+    name: "HomePage",
+    component: () => import("../views/HomePage.vue"),
   },
   {
     path: "/banana-mirror-browser",
