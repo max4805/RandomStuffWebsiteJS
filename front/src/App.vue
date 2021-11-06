@@ -26,7 +26,7 @@
       <span class="sep"> | </span>
       <router-link to="/wipe-converter">Wipe&nbsp;Converter</router-link>
       <span class="sep"> | </span>
-      <a href="https://max480-random-stuff.appspot.com/discord-bots.html"
+      <a href="https://max480-random-stuff.appspot.com/discord-bots"
         >Discord&nbsp;Bots</a
       >
       <span class="sep"> | </span>
