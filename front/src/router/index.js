@@ -10,7 +10,7 @@ const routes = [
     component: () => import("../views/HomePage.vue"),
   },
   {
-    path: "/banana-mirror-browser",
+    path: "/celeste/banana-mirror-browser",
     name: "BananaMirrorBrowser",
     component: () => import("../views/BananaMirrorBrowser.vue"),
     meta: {
@@ -18,7 +18,7 @@ const routes = [
     },
   },
   {
-    path: "/celeste-mapping-sprite-resources",
+    path: "/celeste/mapping-sprite-resources",
     name: "AssetBrowser",
     component: () => import("../views/AssetBrowser.vue"),
     meta: {
@@ -26,12 +26,16 @@ const routes = [
     },
   },
   {
-    path: "/wipe-converter",
+    path: "/celeste/wipe-converter",
     name: "WipeConverter",
     component: () => import("../views/WipeConverter.vue"),
     meta: {
       title: "Wipe Converter",
     },
+  },
+  {
+    path: "*",
+    component: () => import("../views/RouteNotFound.vue"),
   },
 ];
 

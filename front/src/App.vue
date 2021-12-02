@@ -16,7 +16,7 @@
         >Update&nbsp;Checker&nbsp;status</a
       >
       <span class="sep"> | </span>
-      <router-link to="/banana-mirror-browser"
+      <router-link to="/celeste/banana-mirror-browser"
         >Banana&nbsp;Mirror&nbsp;Browser</router-link
       >
       <span class="sep break"> | </span>
@@ -24,7 +24,9 @@
         >Font&nbsp;Generator</a
       >
       <span class="sep"> | </span>
-      <router-link to="/wipe-converter">Wipe&nbsp;Converter</router-link>
+      <router-link to="/celeste/wipe-converter"
+        >Wipe&nbsp;Converter</router-link
+      >
       <span class="sep"> | </span>
       <a href="https://max480-random-stuff.appspot.com/discord-bots"
         >Discord&nbsp;Bots</a
