@@ -3,7 +3,13 @@ set -xeo pipefail
 
 rm -rf target
 
-(cd api && npm install)
+(cd api && npm install --only=prod)
+
+if [ "$CI" == "true" ]
+then
+	(cd api && npm install --only=dev)
+fi
+
 cp -r api target
 
 (cd front && npm install --only=prod)
@@ -15,5 +21,6 @@ cp -r front/dist/* target/public/
 
 if [ "$NODE_ENV" == "production" ]
 then
-	rm -rf api front
+	# Only keep target and package.json because that's all we need, and clean up tests from it
+	rm -rf .git .github api front .gitignore README.md target/package-lock.json target/tests target/.eslintrc build.sh
 fi
