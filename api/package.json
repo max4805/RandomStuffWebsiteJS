@@ -16,7 +16,7 @@
     "axios": "^0.24.0",
     "connect-history-api-fallback": "^1.6.0",
     "debug": "~4.3.3",
-    "express": "~4.17.1",
+    "express": "~4.17.2",
     "express-async-handler": "^1.2.0",
     "express-fileupload": "^1.2.1",
     "jimp": "^0.16.1",
