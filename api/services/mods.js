@@ -29,12 +29,12 @@ const getModList = async() => {
                 .filter(entry => entry[1].GameBananaType === mod.GameBananaType && entry[1].GameBananaId === mod.GameBananaId)
                 .forEach(entry => {
                     // find the matching file in the mod search database to get the full info.
-                    const bananaUrl = entry[1].MirrorURL.replace('/mmdl/', '/dl/');
+                    const bananaUrl = entry[1].URL.replace('/mmdl/', '/dl/');
                     const info = mod.Files.filter(file => file.URL === bananaUrl).map(file => ({
                         createdDate: file.CreatedDate,
                         size: file.Size,
                         name: file.Name,
-                        url: entry[1].URL,
+                        url: entry[1].MirrorURL,
                         description: file.Description,
                         order: mod.Files.indexOf(file)
                     }))[0];
