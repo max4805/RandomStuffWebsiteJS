@@ -19,6 +19,11 @@
       <router-link to="/celeste/banana-mirror-browser"
         >Banana&nbsp;Mirror&nbsp;Browser</router-link
       >
+      <span class="sep"> | </span>
+      <a
+        href="https://max480-random-stuff.appspot.com/celeste/mod-structure-verifier"
+        >Mod&nbsp;Structure&nbsp;Verifier</a
+      >
       <span class="sep break"> | </span>
       <a href="https://max480-random-stuff.appspot.com/celeste/font-generator"
         >Font&nbsp;Generator</a
@@ -34,7 +39,7 @@
       <span class="sep"> | </span>
       <a
         href="https://max480-random-stuff.appspot.com/celeste/news-network-subscription"
-        >#celeste_news&nbsp;Subscription</a
+        >#celeste_news_network&nbsp;Subscription</a
       >
     </div>
     <router-view />
