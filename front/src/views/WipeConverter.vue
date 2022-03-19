@@ -197,8 +197,8 @@ h1 {
 
   .alert-info {
     color: #fff;
-    border-color: #2c9fc6;
-    background-color: #0e7497;
+    border-color: #1f85a8;
+    background-color: #0a6382;
 
     code {
       color: white;
