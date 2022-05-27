@@ -1,7 +1,5 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-
-Vue.use(VueRouter);
+import { nextTick } from "vue";
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
@@ -34,13 +32,13 @@ const routes = [
     },
   },
   {
-    path: "*",
+    path: "/:pathMatch(.*)*",
     component: () => import("../views/RouteNotFound.vue"),
   },
 ];
 
-const router = new VueRouter({
-  mode: "history",
+const router = createRouter({
+  history: createWebHistory(),
   base: process.env.BASE_URL,
   routes,
 });
@@ -49,7 +47,7 @@ const DEFAULT_TITLE = "max480's Random Stuff Website";
 router.afterEach((to) => {
   // Use next tick to handle router history correctly
   // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609
-  Vue.nextTick(() => {
+  nextTick(() => {
     document.title = to.meta.title || DEFAULT_TITLE;
   });
 });

@@ -3,17 +3,16 @@ set -xeo pipefail
 
 rm -rf target
 
-(cd api && npm install --only=prod)
-
 if [ "$CI" == "true" ]
 then
-	(cd api && npm install --only=dev)
+	(cd api && npm install)
+else
+	(cd api && npm install --only=prod)
 fi
 
 cp -r api target
 
-(cd front && npm install --only=prod)
-(cd front && npm install --only=dev)
+(cd front && npm install --production=false) # we need the Vue CLI to build the app
 (cd front && npm run build)
 
 rm -rf target/public/*

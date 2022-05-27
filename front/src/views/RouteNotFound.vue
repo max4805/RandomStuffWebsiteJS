@@ -13,7 +13,7 @@ const vue = {
   mounted: function () {
     document.getElementById("nav").style.display = "none";
   },
-  destroyed: function () {
+  unmounted: function () {
     document.getElementById("nav").style.display = "block";
   },
 };
