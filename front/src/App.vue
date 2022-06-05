@@ -9,7 +9,10 @@
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              :class="
+                'nav-link dropdown-toggle ' +
+                (this.$route.path.startsWith('/celeste') ? 'active' : '')
+              "
               href="#"
               id="celesteDropdown"
               role="button"

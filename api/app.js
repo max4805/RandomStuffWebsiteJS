@@ -13,7 +13,11 @@ let app = express();
 app.use(fileUpload());
 
 app.use((_, res, next) => {
-    res.header('Content-Security-Policy', 'default-src \'self\'; style-src \'self\' \'unsafe-inline\'; img-src https:; frame-ancestors \'none\'; object-src \'none\';');
+    res.header('Content-Security-Policy', 'default-src \'self\'; '
+         + 'style-src \'self\' \'unsafe-inline\'; '
+         + 'img-src \'self\' https://celestemodupdater.0x0a.de; '
+         + 'frame-ancestors \'none\'; '
+         + 'object-src \'none\';');
     next();
 })
 
