@@ -43,7 +43,7 @@ const router = createRouter({
   routes,
 });
 
-const DEFAULT_TITLE = "max480's Random Stuff Website";
+const DEFAULT_TITLE = "max480's Random Stuff";
 router.afterEach((to) => {
   // Use next tick to handle router history correctly
   // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609

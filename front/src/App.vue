@@ -1,48 +1,129 @@
 <template>
-  <div id="app" class="container">
-    <div id="nav">
-      <a
-        href="https://max480-random-stuff.appspot.com/celeste/custom-entity-catalog"
-        >Custom&nbsp;Entity&nbsp;Catalog</a
-      >
-      <span class="sep"> | </span>
-      <a
-        href="https://max480-random-stuff.appspot.com/celeste/everest-yaml-validator"
-        >everest.yaml&nbsp;validator</a
-      >
-      <span class="sep"> | </span>
-      <a
-        href="https://max480-random-stuff.appspot.com/celeste/update-checker-status"
-        >Update&nbsp;Checker&nbsp;status</a
-      >
-      <span class="sep"> | </span>
-      <router-link to="/celeste/banana-mirror-browser"
-        >Banana&nbsp;Mirror&nbsp;Browser</router-link
-      >
-      <span class="sep"> | </span>
-      <a
-        href="https://max480-random-stuff.appspot.com/celeste/mod-structure-verifier"
-        >Mod&nbsp;Structure&nbsp;Verifier</a
-      >
-      <span class="sep break"> | </span>
-      <a href="https://max480-random-stuff.appspot.com/celeste/font-generator"
-        >Font&nbsp;Generator</a
-      >
-      <span class="sep"> | </span>
-      <router-link to="/celeste/wipe-converter"
-        >Wipe&nbsp;Converter</router-link
-      >
-      <span class="sep"> | </span>
-      <a href="https://max480-random-stuff.appspot.com/discord-bots"
-        >Discord&nbsp;Bots</a
-      >
-      <span class="sep"> | </span>
-      <a
-        href="https://max480-random-stuff.appspot.com/celeste/news-network-subscription"
-        >#celeste_news_network&nbsp;Subscription</a
-      >
+  <div>
+    <nav
+      class="navbar navbar-expand navbar-light bg-light border-bottom shadow-sm"
+    >
+      <div class="container-fluid">
+        <h5 class="navbar-brand m-0">max480's Random Stuff</h5>
+
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="celesteDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              data-bs-target="#celesteDropdown"
+              aria-expanded="false"
+              >Celeste</a
+            >
+            <ul
+              class="dropdown-menu dropdown-menu-sm-end"
+              aria-labelledby="celesteDropdown"
+            >
+              <li>
+                <router-link
+                  to="/celeste/banana-mirror-browser"
+                  class="dropdown-item"
+                  >Banana Mirror Browser</router-link
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://max480-random-stuff.appspot.com/celeste/news-network-subscription"
+                  >#celeste_news_network Subscription</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://max480-random-stuff.appspot.com/celeste/custom-entity-catalog"
+                  >Custom Entity Catalog</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://max480-random-stuff.appspot.com/celeste/everest-yaml-validator"
+                  >everest.yaml validator</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://max480-random-stuff.appspot.com/celeste/font-generator"
+                  >Font Generator</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://max480-random-stuff.appspot.com/celeste/mod-structure-verifier"
+                  >Mod Structure Verifier</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://max480-random-stuff.appspot.com/celeste/update-checker-status"
+                  >Update Checker status</a
+                >
+              </li>
+              <li>
+                <router-link to="/celeste/wipe-converter" class="dropdown-item"
+                  >Wipe Converter</router-link
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://max480-random-stuff.appspot.com/discord-bots"
+              >Discord Bots</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="linksDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Links</a
+            >
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="linksDropdown"
+            >
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://gamebanana.com/members/1698143"
+                  target="_blank"
+                  >GameBanana</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://github.com/max4805"
+                  target="_blank"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="app" class="container">
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
 
@@ -50,47 +131,34 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.navbar {
+  margin-bottom: 20px;
 }
 
-// list-style navbar when the resolution is too small
-@media (max-width: 450px) {
-  .sep {
-    display: none;
-  }
+.dropdown-item.router-link-exact-active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #0d6efd;
+}
 
-  #nav a {
+.form-group {
+  margin-bottom: 16px;
+}
+
+// navbar modifications when the screen is not wide enough
+@media (max-width: 575px) {
+  .container-fluid {
+    display: block !important;
+    text-align: center;
+  }
+  .navbar-nav {
     display: block;
   }
-}
-// line break when the screen is wide enough
-@media (min-width: 1200px) {
-  .break {
-    display: block;
-    height: 0px;
-    overflow: hidden;
+  .nav-item {
+    display: inline-block;
   }
 }
 
@@ -105,11 +173,38 @@
   }
 
   // navbar colors
-  #nav a {
-    color: #a5a5a5;
+  .navbar.bg-light {
+    background-color: rgb(33, 37, 41) !important;
+    border-bottom: 1px solid #8a8a8a !important;
   }
-  #nav a.router-link-active {
-    color: #4ed898;
+  .navbar .navbar-brand {
+    color: #fff;
+  }
+  .navbar .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .navbar .navbar-nav .nav-link:focus,
+  .navbar .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .navbar .navbar-nav .nav-link.active {
+    color: #fff;
+  }
+  .navbar-light .navbar-brand:hover {
+    color: #fff;
+  }
+  .dropdown-menu {
+    color: #dee2e6;
+    background-color: #343a40;
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+  .dropdown-menu .dropdown-item {
+    color: #dee2e6;
+  }
+  .dropdown-menu .dropdown-item:focus,
+  .dropdown-menu .dropdown-item:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 
   // button colors

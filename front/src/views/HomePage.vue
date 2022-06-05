@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Welcome!</h1>
-    <p>Browse through the sites by using the options above.</p>
+    <p>Browse through the site by using the options above.</p>
   </div>
 </template>
 
