@@ -27,5 +27,10 @@
   "devDependencies": {
     "eslint": "^8.17.0",
     "jest": "^28.1.1"
+  },
+  "overrides": {
+    "@jimp/jpeg": {
+      "jpeg-js": "0.4.4"
+    }
   }
 }
